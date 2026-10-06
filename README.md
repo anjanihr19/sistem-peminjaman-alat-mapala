@@ -1,72 +1,129 @@
-# Aplikasi Inventori Dengan Framework CodeIgniter 3 & Template SB Admin 2
+# MAYAPALATools (AlatMYP) — Aplikasi Peminjaman Alat Dengan Framework CodeIgniter 3 & Template SB Admin 2
 
-### Kenapa saya membuat aplikasi ini?
+Aplikasi web untuk mengelola peminjaman alat (contohnya alat panjat tebing / outdoor: sling prusik, karmantel, jummar, flysheet, dan lain-lain) di Sekretariat MAYAPALA. Anggota bisa mengajukan peminjaman secara online, sedangkan admin (bagian kerumahtanggaan) mengelola stok alat, data peminjam, dan menyetujui, menolak, atau negosiasi pengajuan.
 
-Ini merupakan aplikasi yang akan saya jadikan sebagai portfolio. Sebenarnya saya sudah banyak membuat banyak aplikasi berbasis web, namun saya lupa membackupnya. Jadi saya harus mengulang lagi dari awal demi portfolio. Selain sebagai portfolio, contoh aplikasi ini juga bisa saya jadikan sebagai latihan untuk mengasah skill koding saya.
+Dibangun dengan CodeIgniter 3, PHP, MySQL, dan template SB Admin 2.
 
-### Untuk siapa sih aplikasi ini?
+**Kenapa saya membuat aplikasi ini?**
 
-Untuk kalian semua yang mau belajar atau yang butuh inspirasi tentang aplikasi berbasis web terutama yang menggunakan PHP dan MySQL.
+Ini merupakan aplikasi yang akan saya jadikan sebagai project skrispi saya. Sebenarnya saya sudah banyak membuat aplikasi berbasis web, namun saya lupa membackupnya. Jadi saya harus mengulang lagi dari awal demi portfolio.
 
-### Boleh ga memodifikasi aplikasi ini?
+**Untuk siapa sih aplikasi ini?**
 
-Jawabanya adalah **sangat sangat boleh!** Tapi ingat tetap sertakan siapa yang membuat aplikasi ini. 
+Untuk kalian semua yang mau belajar atau yang butuh inspirasi tentang aplikasi berbasis web, terutama yang menggunakan PHP dan MySQL.
 
-### Kalo di jual boleh ga?
+**Boleh ga memodifikasi aplikasi ini?**
 
-**Dilarang Keras!** Karena ini aplikasi bener bener gratis dan bebas bagi siapapun yang menggunakan dan ingin memodifikasinya.
+Jawabannya adalah **sangat sangat boleh!** Tapi ingat tetap sertakan siapa yang membuat aplikasi ini.
 
-### Fiturnya apa saja sih?
-Untuk fiturnya masih sangas sederhana, contohnya sebagai berikut
-1. **Modul Authentikasi**
-   
-   Di modul ini saya membuat fitur untuk login dan logout.
-   
-2. **Modul Data Barang**
-   
-   Di modul ini saya membuat fitur untuk melihat, menambah, mengubah, menghapus dan meng-ekspor data barang.
-   
-3. **Modul Data Customer**
+**Kalo dijual boleh ga?**
 
-   Di modul ini saya membuat fitur untuk melihat, menambah, mengubah, menghapus dan meng-ekspor data Cutomer.
-   
-4. **Modul Data Supplier**
+**Dilarang Keras!** Karena ini aplikasi bener-bener gratis dan bebas bagi siapapun yang menggunakan dan ingin memodifikasinya.
 
-   Di modul ini saya membuat fitur untuk melihat, menambah, mengubah, menghapus dan meng-ekspor data Supplier.
-   
-5. **Modul Data Petugas**
 
-   Di modul ini saya membuat fitur untuk melihat, menambah, mengubah, menghapus dan meng-ekspor data Petugas.
-   
-6. **Modul Transaksi Penerimaan**
+**Fiturnya apa saja sih?**
 
-   Di modul ini saya membuat fitur untuk melihat, menambah, menghapus dan meng-ekspor transaksi penerimaan.
-   
-7. **Modul Transaksi Pengeluaran**
+**Halaman Publik**
 
-   Di modul ini saya membuat fitur untuk melihat, menambah, menghapus dan meng-ekspor transaksi pengeluaran.
+1. **Modul Autentikasi**
 
-8. **Modul Manajemen Akun**
+   - Login peminjam di `/login` dan login admin di `/admin/login` (halaman terpisah).
+   - Registrasi peminjam di `/register`. Pendaftaran **wajib menggunakan kode undangan** yang dibuat oleh admin.
+   - Akun yang baru mendaftar berstatus **non-aktif** sampai diaktifkan admin.
+   - Password disimpan dalam bentuk hash (`password_hash` / `password_verify`).
+   - Sesi otomatis berakhir setelah **30 menit** tidak ada aktivitas.
 
-   Di modul ini saya hanya membuat fitur untuk melihat dan menghapus akun.
-	 
-### Role
-Terdapat Dua Role yaitu `admin` & `petugas`
+**Role User (Peminjam)**
 
-### Instalasi & Konfigurasi
+2. **Dashboard Peminjam**
 
-Untuk cara instalasi dan konfigurasi caranya sangat mudah
+   Ringkasan jumlah total peminjaman, sedang dipinjam, menunggu persetujuan, menunggu konfirmasi, jumlah alat yang tersedia, dan 5 riwayat terbaru. Tersedia juga kontak admin lewat WhatsApp.
 
-1. Kalian download atau clone repositori ini
-2. Masuk ke folder project ini
-3. Lalu buka terminal dan jalankan `composer install`
-4. Selanjutnya kalian bisa buka file `application/config/config.php` 
-5. Ubah isi dari variable `$config['base_url']` dengan `http://localhost/namafolder/`
-6. Untuk `namafolder` silahkan kalian ganti sesuai nama folder dari aplikasi ini di komputer atau laptop kalian
-7. Import `db_inventori.sql` ke database milik kalian
-8. Untuk login `admin` kalian bisa menggunakan username = `nugrohoff` dan password `pwd_nugroho`
-9. Untuk login `petugas` kalian bisa menggunakan username = `PTGS35` dan password `pwd_fanani`
+3. **Modul Daftar Alat**
 
-### Tentang Saya
+   Melihat daftar alat yang berkondisi **Baik**, lengkap dengan pencarian dan pagination.
 
-Fakhrul Nugroho siswa Kelas 12 Jurusan Teknik Komputer Informatika di SMK Negeri 1 Wanareja. https://www.instagram.com/nugrohospace/
+4. **Modul Peminjaman**
+
+   - Mengajukan peminjaman (pilih alat, jumlah, tanggal pinjam, dan tanggal kembali).
+   - Sistem mengecek ketersediaan stok pada rentang tanggal yang dipilih.
+   - Melihat riwayat peminjaman (dengan pencarian dan pagination).
+   - Membatalkan pengajuan yang masih berstatus *Menunggu* atau *Disetujui*.
+   - Menyetujui atau membatalkan hasil negosiasi dari admin (status *Menunggu Konfirmasi User*).
+
+5. **Modul Akun**
+
+   Mengganti password. Jika password masih sementara (hasil reset admin), user wajib menggantinya saat login pertama.
+
+**Role Admin**
+
+6. **Dashboard Admin**
+
+   Statistik pengajuan menunggu, alat sedang dipinjam, total alat, dan daftar alat dengan stok menipis (jumlah ≤ 3 dan kondisi Baik), serta 5 peminjaman terbaru. Admin juga bisa mengubah username dan password akunnya sendiri.
+
+7. **Modul Data Alat**
+
+   Melihat, menambah, mengubah, menghapus, mencari, dan **mengekspor data alat ke Excel** (`Laporan_Alat.xls`). Kode alat bersifat unik.
+
+8. **Modul Data Peminjam**
+
+   - Melihat, mengubah, menghapus (beserta akun login-nya), dan mencari data peminjam.
+   - Mengaktifkan dan menonaktifkan akun peminjam.
+   - Reset password peminjam menjadi password sementara (format `MYP` + 4 angka).
+   - Membuat dan mengelola **kode undangan** pendaftaran (8 karakter, sekali pakai).
+
+9. **Modul Data Peminjaman**
+
+   - Melihat semua pengajuan (dengan pencarian dan pagination).
+   - Memproses pengajuan baru: **setujui langsung**, **tolak** (wajib alasan), atau **nego** (mengubah tanggal / jumlah, wajib alasan).
+   - Memperbarui status menjadi **Dipinjam** dan **Dikembalikan** beserta tanggalnya.
+   - **Mengekspor data peminjaman ke Excel** (`Laporan_Peminjaman.xls`).
+
+
+**Aturan stok:**
+
+- Stok alat berkurang ketika peminjaman berstatus **Disetujui** (langsung oleh admin, atau setelah user menyetujui hasil nego).
+- Stok bertambah kembali ketika status diubah menjadi **Dikembalikan**.
+- Saat user mengajukan peminjaman, sistem menghitung stok tersedia dengan memperhitungkan peminjaman berstatus *Disetujui* / *Dipinjam* yang tanggalnya beririsan.
+
+**Role**
+
+Terdapat dua role, yaitu `Admin` dan `User` (peminjam).
+
+**Teknologi**
+
+- PHP (minimal 5.5 karena memakai `password_hash`) dan MySQL / MariaDB
+- CodeIgniter 3
+- Template SB Admin 2 (folder `sb-admin/`)
+- Dompdf (via Composer, tersedia juga di `application/third_party/dompdf`)
+
+File SQL: `database/db_inventaris.sql` (nama database: `db_inventaris`)
+
+**Instalasi & Konfigurasi**
+
+1. Download, lalu letakkan di folder web server kalian (misalnya `htdocs` pada XAMPP). Nama foldernya `AlatMYP`.
+2. Masuk ke folder project, lalu buka terminal dan jalankan `composer install`.
+3. Buka file `application/config/config.php`, lalu ubah `$config['base_url']` menjadi `http://localhost/namafolder/`.
+4. Jika nama folder kalian bukan `AlatMYP`, ubah juga `RewriteBase /AlatMYP/` di file `.htaccess` menjadi `RewriteBase /namafolder/`.
+5. Pastikan modul `mod_rewrite` Apache aktif (aplikasi memakai URL tanpa `index.php`).
+6. Buat database bernama `db_inventaris`, lalu import file `database/db_inventaris.sql`.
+7. Sesuaikan koneksi database di `application/config/database.php` (bawaan: host `localhost`, user `root`, password kosong, database `db_inventaris`).
+8. Jalankan aplikasi di `http://localhost/namafolder/`.
+
+**Akun untuk Login**
+Admin : 
+		Username : admin
+		Password : admin
+
+Peminjam : 
+		Username : wadar
+		Password : wadar
+
+**Catatan:** Jika login admin gagal, jalankan `z/update_admin.php` lewat browser untuk mereset password admin menjadi `admin`. Script bantu di folder `z/` (`update_admin.php` dan `cek_password.php`) hanya untuk keperluan development, jadi **hapus folder `z/` sebelum aplikasi dipublikasikan**.
+
+Untuk membuat akun peminjam baru: login sebagai admin, buka menu **Kode Undangan**, buat kode baru, lalu daftarkan akun lewat `/register` dan aktifkan akunnya dari menu **Data Peminjam**.
+
+
+**Tentang Saya**
+
+Anjani Kikan Putri Hermawan, Mahasiswi Universitas Amikom Yogyakarta jurusan Sistem Informasi. https://www.instagram.com/anjaniihr/
