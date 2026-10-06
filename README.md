@@ -10,15 +10,11 @@ Ini merupakan aplikasi yang akan saya jadikan sebagai project skrispi saya. Sebe
 
 **Untuk siapa sih aplikasi ini?**
 
-Untuk kalian semua yang mau belajar atau yang butuh inspirasi tentang aplikasi berbasis web, terutama yang menggunakan PHP dan MySQL.
+Untuk yang butuh inspirasi tentang aplikasi berbasis web, terutama yang menggunakan PHP dan MySQL.
 
 **Boleh ga memodifikasi aplikasi ini?**
 
-Jawabannya adalah **sangat sangat boleh!** Tapi ingat tetap sertakan siapa yang membuat aplikasi ini.
-
-**Kalo dijual boleh ga?**
-
-**Dilarang Keras!** Karena ini aplikasi bener-bener gratis dan bebas bagi siapapun yang menggunakan dan ingin memodifikasinya.
+**boleh** Tapi tetap sertakan siapa yang membuat aplikasi ini.
 
 
 **Fiturnya apa saja sih?**
